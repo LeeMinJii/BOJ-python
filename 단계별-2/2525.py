@@ -1,16 +1,15 @@
 # 오븐 시계
 
-# 1
-h, m = map(int, input().split())
-ctime = int(input())
+a, b = map(int, input().split())
+c = int(input())
 
-if ctime+m < 60:
-    m = m+ctime
-else: # ctime+m >= 60
-    if h == 23:
-        h = ((ctime + m)//60)-1
-    else:
-        h += (ctime+m)//60
-    m = (ctime+m)%60
+a += c//60
+b += c%60
 
-print(h, m)
+if b>=60:
+    a += 1
+    b -= 60
+    # 24부터 다시 0,1,..이 돼야하므로 24로 나눈 나머지
+    print(a%24,b)
+else:
+    print(a%24, b)
